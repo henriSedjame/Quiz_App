@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:question_app/views/question/QuestionPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
               elevation: 15.0,
             ),
             new SizedBox(
-              height: 40.0,
+              height: 60.0,
             ),
             new RaisedButton(
               child: new Text(
@@ -45,11 +46,20 @@ class _HomePageState extends State<HomePage> {
                 style: new TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: navigateToQuestionPage,
             )
           ],
         ),
       ),
+    );
+  }
+
+  void navigateToQuestionPage() {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (BuildContext ctx) {
+        return new QuestionPage();
+      })
     );
   }
 }
